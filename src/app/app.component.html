@@ -4,6 +4,7 @@
       Kohlmeisen {{ title }}
     </h1>
   </div>
+  ng build --prod <br>
   ng build --base-href=/~slukic/dist/
 </div>
 
@@ -13,7 +14,7 @@
   <div class="card-deck">
 
     <div class="card">
-      <a href="https://kohlmeise.cosy.sbg.ac.at" class="btn btn-fix text-left">
+      <a routerLink="quiz" class="btn btn-fix text-left">
         <img class="card-img-bottom"  width="422px" height="318px"  src="assets/img/heman.jpg" alt="He-man">
         <div class="card-block ">
           <h4 class="card-title text-dark text-center" style="margin-top: 1em;" >Cartoons</h4>
@@ -26,23 +27,11 @@
     </div>
 
     <div class="card">
-      <a href="https://www.orf.at" class="btn btn-fix text-left">
-        <img class="card-img-bottom" width="422px" height="318px" src="assets/img/saberrider.jpg" alt="Saberrider">
-        <div class="card-block ">
-            <h4 class="card-title text-dark text-center" style="margin-top: 1em;" >Cartoons</h4>
-          <p class="card-text text-dark ">Ha! Noch ein Quiz über Cartoons!</p>
-          <p class="card-text ">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </p>
-        </div>
-      </a>
-    </div>
-    <div class="card">
         <a routerLink="/q" class="btn btn-fix text-left">
-          <img class="card-img-bottom" width="422px" height="318px" src="assets/img/saberrider.jpg" alt="Saberrider">
+          <img class="card-img-bottom" width="422px" height="318px" src="assets/img/kohlmeise.jpg" alt="Vogel">
           <div class="card-block ">
-              <h4 class="card-title text-dark text-center" style="margin-top: 1em;" >Cartoons</h4>
-            <p class="card-text text-dark ">Ha! Noch ein Quiz über Cartoons!</p>
+              <h4 class="card-title text-dark text-center" style="margin-top: 1em;" >BIRDS</h4>
+            <p class="card-text text-dark ">This is a quiz about birds!</p>
             <p class="card-text ">
               <small class="text-muted">Last updated 3 mins ago</small>
             </p>
@@ -69,12 +58,8 @@
   <p class="text-center"><a routerLink="home">Highscore</a></p></div>
 
 
-  <a routerLink="/q">Heroes</a>
+  <a routerLink="/quiz">Quiz</a>
+  <a routerLink="/q">q</a>
+
   <router-outlet></router-outlet>
 
-<!--
-<div>
-  <div>
-    <app-queston-card></app-queston-card>
-  </div>
-</div>-->
