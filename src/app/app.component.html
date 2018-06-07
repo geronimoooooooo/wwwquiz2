@@ -1,20 +1,80 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="bg-info" style="margin-top: 50px;">
+  <div style="text-align:center">
+    <h1 id="h1_quiz">
+      Kohlmeisen {{ title }}
+    </h1>
+  </div>
+  ng build --base-href=/~slukic/dist/
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+
+
+<div class="card-deck-wrapper" style="margin-top: 3em;">
+  <div class="card-deck">
+
+    <div class="card">
+      <a href="https://kohlmeise.cosy.sbg.ac.at" class="btn btn-fix text-left">
+        <img class="card-img-bottom"  width="422px" height="318px"  src="assets/img/heman.jpg" alt="He-man">
+        <div class="card-block ">
+          <h4 class="card-title text-dark text-center" style="margin-top: 1em;" >Cartoons</h4>
+          <p class="card-text text-dark ">Ein Quiz über Cartoons!</p>
+          <p class="card-text ">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </p>
+        </div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://www.orf.at" class="btn btn-fix text-left">
+        <img class="card-img-bottom" width="422px" height="318px" src="assets/img/saberrider.jpg" alt="Saberrider">
+        <div class="card-block ">
+            <h4 class="card-title text-dark text-center" style="margin-top: 1em;" >Cartoons</h4>
+          <p class="card-text text-dark ">Ha! Noch ein Quiz über Cartoons!</p>
+          <p class="card-text ">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </p>
+        </div>
+      </a>
+    </div>
+    <div class="card">
+        <a routerLink="/q" class="btn btn-fix text-left">
+          <img class="card-img-bottom" width="422px" height="318px" src="assets/img/saberrider.jpg" alt="Saberrider">
+          <div class="card-block ">
+              <h4 class="card-title text-dark text-center" style="margin-top: 1em;" >Cartoons</h4>
+            <p class="card-text text-dark ">Ha! Noch ein Quiz über Cartoons!</p>
+            <p class="card-text ">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </p>
+          </div>
+        </a>
+      </div>
+    <!--<div class="card">
+      <img class="card-img-top" data-src="..." alt="Card image cap">
+      <div class="card-block">
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little
+          bit longer.</p>
+        <p class="card-text">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </p>
+      </div>
+
+    </div>-->
+  </div>
+</div>
+
+
+<div id="highscore" style="margin-top: 2em;">
+  <p class="text-center"><a routerLink="home">Highscore</a></p></div>
+
+
+  <a routerLink="/q">Heroes</a>
+  <router-outlet></router-outlet>
+
+<!--
+<div>
+  <div>
+    <app-queston-card></app-queston-card>
+  </div>
+</div>-->
