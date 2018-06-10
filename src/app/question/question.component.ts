@@ -90,7 +90,7 @@ export class QuestionComponent implements OnInit {
     let json = JSON.stringify(this.form.value);
     console.log("json: "+json);
     let map2 = JSON.parse(json);
-    this.correctAnswers = this.calculatePoints(map2);
+    this.correctAnswers = this.calculatePoints(new Map(Object.entries(map2)));
     for(let obj in map2){
       console.log("key: "+obj+": "+map2[obj]);
       for(let q of this.qList){
@@ -123,7 +123,7 @@ export class QuestionComponent implements OnInit {
    * @param mapAnswers Map containing question ids and selected answer ids.
    * @returns number - The amount of correct answers.
    */
-  calculatePoints(mapAnswers:any):number{
+  calculatePoints(mapAnswers:Map<string, string>):number{
     let correctAnswers: number = 0;
     
     for(let obj in mapAnswers){
@@ -142,6 +142,7 @@ export class QuestionComponent implements OnInit {
     map.set("C","d");
 
     console.log(map.get("A")+" :"+ map.size);
+    console.log("MAP JSON: "+JSON.stringify(map)); 
     map.forEach((value: string, key: string) => {
       console.log(key, value);
    });
@@ -149,10 +150,10 @@ export class QuestionComponent implements OnInit {
     for(let [key, value] of map){
       console.log("for-of map" + key, value);
     }
-/*
+
     mapAnswers.forEach((value: string, key: string) => {
-      console.log(key, value);      
-  });*/
+      console.log("mapAnswers: "+key, value);      
+  });
 
     console.log("CORRECTANSWERS: "+correctAnswers);
     return correctAnswers;
