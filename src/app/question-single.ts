@@ -8,6 +8,7 @@ export class QuestionSingle {
     a2: string;
     ida3: string;
     a3: string;
+    idaCorrect: string;
    
 
     constructor(
@@ -18,7 +19,8 @@ export class QuestionSingle {
         ida2: string,
         a2: string,
         ida3: string,
-        a3: string) {
+        a3:string,
+        idaCorrect: string) {
 
         this.idq = idq;
         this.question = question;
@@ -28,6 +30,6 @@ export class QuestionSingle {
         this.a2 = a2;
         this.ida3 = ida3;
         this.a3 = a3;
-        
+        this.idaCorrect = idaCorrect;        
     }
 }
