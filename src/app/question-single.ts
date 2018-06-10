@@ -8,7 +8,7 @@ export class QuestionSingle {
     a2: string;
     ida3: string;
     a3: string;
-    aOk: string;
+   
 
     constructor(
         idq: string,

@@ -2,33 +2,47 @@
   question works!
 </p>
 
-<form>
+<form #f="ngForm">
+  <fieldset>
   <div *ngFor="let q of qList">
     <div class="card card-block">
       <div class="card-header bg-info">
         <h3>{{q.question}}</h3>
       </div>
       <div class="card-body">
-        <p class="card-text">
-          <input type="radio" id="a1" name="{{q.idq}}" value="{{q.ida1}}" (click)="clickedMe($event)"> {{q.a1}}</p>
-        <p class="card-text">
-          <input type="radio" id="a2" name="{{q.idq}}" value="{{q.ida2}}" (click)="clickedMe($event)"> {{q.a2}}</p>
-        <p class="card-text" >
-          <input type="radio" id="a3" name="{{q.idq}}" value="{{q.ida3}}"(click)="clickedMe($event)"> {{q.a3}}</p>
+          <div class="form-check" style="margin-bottom: 5px;">
+          <input class="form-check-input" type="radio" name="{{q.idq}}" id="{{q.ida1}}" value="{{q.ida1}}" ngModel>
+          <label class="form-check-label h5" for="{{q.ida1}}">
+              {{q.a1}}{{q.idq}}
+          </label>
+        </div>
+        <div class="form-check" style="margin-bottom: 5px;">
+            <input class="form-check-input" type="radio" name="{{q.idq}}" id="{{q.ida2}}" value="{{q.ida2}}" ngModel>
+            <label class="form-check-label h5" for="{{q.ida2}}">
+                {{q.a2}}{{q.idq}}
+            </label>
+        </div>
+        <div class="form-check" style="margin-bottom: 5px;">
+            <input class="form-check-input" type="radio" name="{{q.idq}}" id="{{q.ida3}}" value="{{q.ida3}}" ngModel>
+            <label class="form-check-label h5" for="{{q.ida3}}">
+                {{q.a3}}{{q.idq}}
+            </label>
+        </div>
+       
       </div>
     </div>
     <hr>
   </div>
-
   <div class="row">
     <div class="col-12">
       <span class="float-right">
-        <input name="btn_next" id="btn_next" style="margin-top: 1em;" 
-        class="btn btn-info" type="button" (click) = "showValues()" value="SEND">
+        <input name="btn_next" id="btn_next" style="margin-top: 1em;" class="btn btn-info" type="button" (click)="showValues()" value="SEND">
       </span>
     </div>
   </div>
+</fieldset>
 </form>
+<pre>{{f.value |json}}</pre>
 <hr>
 <h5>Float</h5>
 <div class="row">
@@ -50,3 +64,18 @@
 </div>
 -->
 
+<!--        <div class="radio">
+          <label class="h4">
+              <input type="radio" id="a1" name="{{q.idq}}" value="{{q.ida1}}" (click)="clickedMe($event)"> {{q.a1}}
+          </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" id="a2" name="{{q.idq}}" value="{{q.ida2}}" (click)="clickedMe($event)"> {{q.a2}}
+            </label>
+          </div>
+          <div class="radio">
+              <label>
+                  <input type="radio" id="a3" name="{{q.idq}}" value="{{q.ida3}}" (click)="clickedMe($event)"> {{q.a3}}
+              </label>
+            </div> -->
