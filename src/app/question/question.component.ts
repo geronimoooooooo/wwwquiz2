@@ -123,13 +123,13 @@ export class QuestionComponent implements OnInit {
    * @param mapAnswers Map containing question ids and selected answer ids.
    * @returns number - The amount of correct answers.
    */
-  calculatePoints(mapAnswers:Map<string, string>):number{
-    let correctAnwsers: number = 0;
+  calculatePoints(mapAnswers:any):number{
+    let correctAnswers: number = 0;
     
     for(let obj in mapAnswers){
       console.log(" mapAnswers[obj] given answer: "+mapAnswers[obj])
       if(mapAnswers[obj] in this.mapQuestAnswer.values()){
-        correctAnwsers++;
+        correctAnswers++;
       }
     }
     this.showCorrectAnswers();
@@ -137,15 +137,24 @@ export class QuestionComponent implements OnInit {
       console.log("correct answer:this.mapQuestAnswer[obj]: "+this.mapQuestAnswer[obj]);
     }
     
+    let map = new Map();
+    map.set("A","B");
+    map.set("C","d");
 
-    
-   /* mapAnswers.forEach((value: string, key: string) => {
+    console.log(map.get("A")+" :"+ map.size);
+    map.forEach((value: string, key: string) => {
       console.log(key, value);
-      if(value in this.mapQuestAnswer.values){
-        
-      }
+   });
+   
+    for(let [key, value] of map){
+      console.log("for-of map" + key, value);
+    }
+/*
+    mapAnswers.forEach((value: string, key: string) => {
+      console.log(key, value);      
   });*/
-    console.log("CORRECTANSWERS: "+correctAnwsers);
-    return correctAnwsers;
+
+    console.log("CORRECTANSWERS: "+correctAnswers);
+    return correctAnswers;
   }
 }
