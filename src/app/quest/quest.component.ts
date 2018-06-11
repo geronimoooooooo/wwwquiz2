@@ -15,7 +15,7 @@ export class QuestComponent implements OnInit {
     this.question = "Is this a bird?"
     this.answer1 = "Yes";
     this.answer2 = "No";
-   }
+  }
 
   ngOnInit() {
   }

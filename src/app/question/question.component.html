@@ -1,42 +1,42 @@
 <form #f="ngForm">
   <fieldset>
-  <div *ngFor="let q of qList">
-    <div class="card card-block">
-      <div class="card-header bg-info">
-        <h3>{{q.question}}</h3>
-      </div>
-      <div class="card-body">
-          <div class="form-check" style="margin-bottom: 5px;">
-          <input class="form-check-input" type="radio" name="{{q.idq}}" id="{{q.ida1}}" value="{{q.ida1}}" ngModel>
-          <label class="form-check-label h5" for="{{q.ida1}}">
-              {{q.a1}}{{q.idq}}
-          </label>
+    <div *ngFor="let q of qList">
+      <div class="card card-block">
+        <div class="card-header bg-info">
+          <h3>{{q.question}}</h3>
         </div>
-        <div class="form-check" style="margin-bottom: 5px;">
+        <div class="card-body">
+          <div class="form-check" style="margin-bottom: 5px;">
+            <input class="form-check-input" type="radio" name="{{q.idq}}" id="{{q.ida1}}" value="{{q.ida1}}" ngModel>
+            <label class="form-check-label h5" for="{{q.ida1}}">
+              {{q.a1}}{{q.idq}}
+            </label>
+          </div>
+          <div class="form-check" style="margin-bottom: 5px;">
             <input class="form-check-input" type="radio" name="{{q.idq}}" id="{{q.ida2}}" value="{{q.ida2}}" ngModel>
             <label class="form-check-label h5" for="{{q.ida2}}">
-                {{q.a2}}{{q.idq}}
+              {{q.a2}}{{q.idq}}
             </label>
-        </div>
-        <div class="form-check" style="margin-bottom: 5px;">
+          </div>
+          <div class="form-check" style="margin-bottom: 5px;">
             <input class="form-check-input" type="radio" name="{{q.idq}}" id="{{q.ida3}}" value="{{q.ida3}}" ngModel>
             <label class="form-check-label h5" for="{{q.ida3}}">
-                {{q.a3}}{{q.idq}}
+              {{q.a3}}{{q.idq}}
             </label>
+          </div>
+
         </div>
-       
+      </div>
+      <hr>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <span class="float-right">
+          <input name="btn_next" id="btn_next" style="margin-top: 1em;" class="btn btn-info" type="button" (click)="showValues()" value="SEND">
+        </span>
       </div>
     </div>
-    <hr>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <span class="float-right">
-        <input name="btn_next" id="btn_next" style="margin-top: 1em;" class="btn btn-info" type="button" (click)="showValues()" value="SEND">
-      </span>
-    </div>
-  </div>
-</fieldset>
+  </fieldset>
 </form>
 <p class="h3" style="margin-top: -50px;">Correct answers: {{correctAnswers}}</p>
 <hr>
