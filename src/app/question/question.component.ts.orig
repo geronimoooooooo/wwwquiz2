@@ -3,10 +3,14 @@ import { QuestComponent } from '../quest/quest.component'
 import { QuestionSingle } from '../question-single';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+<<<<<<< HEAD
 import { Observable } from 'rxjs/Observable';
 import { Question } from '../question';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+=======
+import {Observable} from 'rxjs/Observable';
+>>>>>>> 6304dd280fd0667e33d32c0b90a38a78670b3514
 
 @Component({
   selector: 'app-question',
@@ -15,37 +19,92 @@ import { switchMap } from 'rxjs/operators';
 })
 export class QuestionComponent implements OnInit {
 
+<<<<<<< HEAD
   @ViewChild('f') form: any;
-  questions: Object[];
+  questions: Question[];
   qList: QuestionSingle[];
+=======
+  @ViewChild('f') form:any;
+  questions: Object[];
+  qList: QuestionSingle[] = [];
+>>>>>>> 6304dd280fd0667e33d32c0b90a38a78670b3514
   aList: String[] = [];
-  mapQuestAnswer: Map<string, string>;
+  mapQuestAnswer: Map<string,string>;
   correctAnswers: number = 0;
+<<<<<<< HEAD
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
+    /*console.log("Constructor of QuestionComponent.")
+=======
+  json1: string = `
+    {
+      "idq": "string1",
+      "question": "string",
+      "ida1": "ida1",
+      "a1": "string",
+      "ida2": "ida2",
+      "a2": "a2",
+      "ida3": "ida3",
+      "a3": "a3",
+      "idaCorrect": "idaCorrect"
+    }`;
+
+  json: string = `[
+  {
+    "idq": "idq_5b111cc2-6e25-11e8-adc0-fa7ae01bbebc",
+    "question": "Wie heißt die Kampfkatze von He-Man???",
+    "ida1": "ida1_5b111f6a-6e25-11e8-adc0-fa7ae01bbebc",
+    "a1": "Bella",
+    "ida2": "ida2_5b1120b4-6e25-11e8-adc0-fa7ae01bbebc",
+    "a2": "Cringer",
+    "ida3": "ida3_5b1121e0-6e25-11e8-adc0-fa7ae01bbebc",
+    "a3": "Tiger",
+    "idaCorrect": "ida2_5b1120b4-6e25-11e8-adc0-fa7ae01bbebc"
+  },
+  {
+    "idq": "idq_5b112302-6e25-11e8-adc0-fa7ae01bbebc",
+    "question": "Wie heißt der Hauptgegner von He-Man?",
+    "ida1": "5b112410-6e25-11e8-adc0-fa7ae01bbebc",
+    "a1": "Wario",
+    "ida2": "5b1127b2-6e25-11e8-adc0-fa7ae01bbebc",
+    "a2": "Skeletor",
+    "ida3": "5b1128d4-6e25-11e8-adc0-fa7ae01bbebc",
+    "a3": "Shredder",
+    "idaCorrect": "5b1127b2-6e25-11e8-adc0-fa7ae01bbebc"
+  }]
+  `;
+
+  constructor(private http: HttpClient) {    
     console.log("Constructor of QuestionComponent.")
+>>>>>>> 6304dd280fd0667e33d32c0b90a38a78670b3514
 
+    for(let str of this.json){
+      
+    }/*
     this.qList = [
-      new QuestionSingle("qid1", "Frage 1", "aid_1", "Select lists are used if you want to allow the user to pick from multiple options.Select lists are used if you want to allow the user to pick from multiple options.", "aid_44", "an 2", "aid_easd", "antwort 3", "aid_1"),
+      new QuestionSingle("qid1", "Frage 1", "aid_1", "Select lists are used if you want to allow the user to pick from multiple options.Select lists are used if you want to allow the user to pick from multiple options.", "aid_44", "an 2", "aid_easd", "antwort 3","aid_1"),
       new QuestionSingle("qid2", "Frage ??", "aid_2", "answer 1", "aid23asd", "an 2", "aid3", "antwort 3", "aid_2"),
-      new QuestionSingle("qid745", "Frage adfasd?", "aid_3", "answer 1",
-        "aid2_easd", "an 2", "aid3_easdf", "aid_3", "aid_3")
+      new QuestionSingle("qid745", "Frage adfasd?", "aid_3", "answer 1", 
+      "aid2_easd", "an 2", "aid3_easdf", "aid_3", "aid_3")
     ];
-
+    
     this.showCorrectAnswers();
-
-    for (let q of this.qList) {
-      console.log("cor:" + q.idaCorrect);
-    }
-
+   
+    for(let q of this.qList){
+      console.log("cor:"+q.idaCorrect );
+    } 
+   
     this.mapQuestAnswer = new Map();
     //set qid and correct answer id
-    this.qList.forEach(element => {
+    this.qList.forEach(element => {      
       this.mapQuestAnswer.set(element.idq, element.idaCorrect);
-    });
+    });*/
   }
-  //https://api.github.com/users/seeschweiler
+<<<<<<< HEAD
+
   ngOnInit() {
+    let id = this.route.snapshot.paramMap.get('id');
+    console.log(id);
 
     this.http.get<Question[]>("http://kohlmeise.cosy.sbg.ac.at/app/questions/1").subscribe((data: any) => { 
       this.questions = data.questions;
@@ -54,6 +113,29 @@ export class QuestionComponent implements OnInit {
   }
 
   /*showCorrectAnswers() {
+=======
+  //https://api.github.com/users/seeschweiler
+  ngOnInit() {
+    let url="https://gist.githubusercontent.com/geronimoooooooo/aa0da95fd7c0bf7956d5ad5a9ac9491e/raw/0190293601c53deacefb77998497202d99990e4b/q1.json";
+    this.http.get(url).subscribe(data => {
+      console.log(data);
+   
+    let arrU: QuestionSingle[] = [];
+    Object.assign(arrU, data);
+    this.qList = arrU;
+    //let u: QuestionSingle = new QuestionSingle();
+    //let json1 = JSON.parse(this.json1);
+    //Object.assign(u, data);
+    //let json = JSON.parse(json1);
+    
+    //console.log(u.question);
+    //console.log(arrU.length);
+    //this.qList.push(u);
+    
+  });   
+  }
+  showCorrectAnswers(){
+>>>>>>> 6304dd280fd0667e33d32c0b90a38a78670b3514
     console.log("following correct answers:");
     for(let i=0; i<this.qList.length; i++){
       console.log("this.qList[i].idaCorrect: "+this.qList[i].idaCorrect);      
@@ -120,13 +202,17 @@ export class QuestionComponent implements OnInit {
 
   jsonToMap(jsonStr:string) {
     return new Map(JSON.parse(jsonStr));
-  }
+  }*/
   /**Calculates how many questions have been answered correctly.
    * 
    * @param mapAnswers Map containing question ids and selected answer ids.
    * @returns number - The amount of correct answers.
    */
+<<<<<<< HEAD
+  /*calculatePoints(mapAnswers: Map<string, string>): number {
+=======
   calculatePoints(mapAnswers:Map<string, string>):number{
+>>>>>>> 6304dd280fd0667e33d32c0b90a38a78670b3514
     let correctAnswers: number = 0;
     
     for(let obj in mapAnswers){
@@ -160,5 +246,5 @@ export class QuestionComponent implements OnInit {
 
     console.log("CORRECTANSWERS: "+correctAnswers);
     return correctAnswers;
-  }
+  }*/
 }

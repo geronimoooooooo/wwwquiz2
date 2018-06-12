@@ -12,15 +12,15 @@ export class QuestionSingle {
    
 
     constructor(
-        idq: string,
-        question: string,
-        ida1: string,
-        a1: string,
-        ida2: string,
-        a2: string,
-        ida3: string,
-        a3:string,
-        idaCorrect: string) {
+        idq?: string,
+        question?: string,
+        ida1?: string,
+        a1?: string,
+        ida2?: string,
+        a2?: string,
+        ida3?: string,
+        a3?:string,
+        idaCorrect?: string) {
 
         this.idq = idq;
         this.question = question;
