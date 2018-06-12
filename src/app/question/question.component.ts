@@ -4,6 +4,9 @@ import { QuestionSingle } from '../question-single';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
+import { Question } from '../question';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-question',
@@ -13,14 +16,14 @@ import { Observable } from 'rxjs/Observable';
 export class QuestionComponent implements OnInit {
 
   @ViewChild('f') form: any;
-  questions: Object[];
+  questions: Question[];
   qList: QuestionSingle[];
   aList: String[] = [];
   mapQuestAnswer: Map<string, string>;
   correctAnswers: number = 0;
 
-  constructor(private http: HttpClient) {
-    console.log("Constructor of QuestionComponent.")
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
+    /*console.log("Constructor of QuestionComponent.")
 
     this.qList = [
       new QuestionSingle("qid1", "Frage 1", "aid_1", "Select lists are used if you want to allow the user to pick from multiple options.Select lists are used if you want to allow the user to pick from multiple options.", "aid_44", "an 2", "aid_easd", "antwort 3", "aid_1"),
@@ -39,18 +42,20 @@ export class QuestionComponent implements OnInit {
     //set qid and correct answer id
     this.qList.forEach(element => {
       this.mapQuestAnswer.set(element.idq, element.idaCorrect);
-    });
-  }
-  //https://api.github.com/users/seeschweiler
-  ngOnInit() {
-
-
-    /*
-    this.http.get('http://kohlmeise.cosy.sbg.ac.at/app/quizzes/').subscribe(data => {
-      console.log(data);
     });*/
   }
-  showCorrectAnswers() {
+
+  ngOnInit() {
+    let id = this.route.snapshot.paramMap.get('id');
+    console.log(id);
+
+    this.http.get<Question[]>("http://kohlmeise.cosy.sbg.ac.at/app/questions/1").subscribe((data: any) => { 
+      this.questions = data.questions;
+      console.log(this.questions);
+    });
+  }
+
+  /*showCorrectAnswers() {
     console.log("following correct answers:");
     for (let i = 0; i < this.qList.length; i++) {
       console.log("this.qList[i].idaCorrect: " + this.qList[i].idaCorrect);
@@ -117,13 +122,13 @@ export class QuestionComponent implements OnInit {
 
   jsonToMap(jsonStr: string) {
     return new Map(JSON.parse(jsonStr));
-  }
+  }*/
   /**Calculates how many questions have been answered correctly.
    * 
    * @param mapAnswers Map containing question ids and selected answer ids.
    * @returns number - The amount of correct answers.
    */
-  calculatePoints(mapAnswers: Map<string, string>): number {
+  /*calculatePoints(mapAnswers: Map<string, string>): number {
     let correctAnswers: number = 0;
 
     for (let obj in mapAnswers) {
@@ -157,5 +162,5 @@ export class QuestionComponent implements OnInit {
 
     console.log("CORRECTANSWERS: " + correctAnswers);
     return correctAnswers;
-  }
+  }*/
 }

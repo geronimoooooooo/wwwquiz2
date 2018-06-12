@@ -9,7 +9,7 @@ import { QuestionComponent } from './question/question.component';
 const routes: Routes = [
   { path: 'home', component: AppComponent },
   { path: 'q', component: QuestonCardComponent },
-  { path: 'quiz', component: QuestionComponent }
+  { path: 'quiz/:id', component: QuestionComponent }
 ];
 
 
