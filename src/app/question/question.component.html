@@ -1,30 +1,17 @@
 <form #f="ngForm">
   <fieldset>
-    <div *ngFor="let q of qList">
+    <div *ngFor="let question of questions">
       <div class="card card-block">
         <div class="card-header bg-info">
-          <h3>{{q.question}}</h3>
+          <h3>{{ question.text }}</h3>
         </div>
         <div class="card-body">
-          <div class="form-check" style="margin-bottom: 5px;">
-            <input class="form-check-input" type="radio" name="{{q.idq}}" id="{{q.ida1}}" value="{{q.ida1}}" ngModel>
-            <label class="form-check-label h5" for="{{q.ida1}}">
-              {{q.a1}}
+          <div *ngFor="let answer of question.answers" class="form-check" style="margin-bottom: 5px;">
+            <input class="form-check-input" type="radio" name="{{ question.id }}" value="{{ answer.id }}" id="{{ answer.id }}" ngModel>
+            <label class="form-check-label h5" for="{{ answer.id }}">
+              {{ answer.text }}
             </label>
           </div>
-          <div class="form-check" style="margin-bottom: 5px;">
-            <input class="form-check-input" type="radio" name="{{q.idq}}" id="{{q.ida2}}" value="{{q.ida2}}" ngModel>
-            <label class="form-check-label h5" for="{{q.ida2}}">
-              {{q.a2}}
-            </label>
-          </div>
-          <div class="form-check" style="margin-bottom: 5px;">
-            <input class="form-check-input" type="radio" name="{{q.idq}}" id="{{q.ida3}}" value="{{q.ida3}}" ngModel>
-            <label class="form-check-label h5" for="{{q.ida3}}">
-              {{q.a3}}
-            </label>
-          </div>
-
         </div>
       </div>
       <hr>
@@ -38,44 +25,7 @@
     </div>
   </fieldset>
 </form>
-<p class="h3" style="margin-top: -50px;">Correct answers: {{correctAnswers}}</p>
+<p class="h3" style="margin-top: -50px;">Result</p>
 <hr>
-<pre>{{f.value |json}}</pre>
+<pre>{{ result }}</pre>
 <hr>
-<!--
-<h5>Float</h5>
-<div class="row">
-  <div class="col-6">left</div>
-  <div class="col-6">
-    <span class="float-right">
-      <input name="btn_next" id="btn_next" style="margin-top: 1em;" class="btn btn-info" type="button" value="NEXT">
-    </span>
-  </div>
-</div>
--->
-<!--
-<hr>
-<div class="card card-block" *ngFor="let q of qList">
-  <h3 class="card-title">{{q.question}}</h3>
-  <div class="card-header bg-primary">
-    <p>{{q.a1}}</p>
-    <p>{{q.a2}}</p>
-  </div>
-</div>
--->
-
-<!--        <div class="radio">
-          <label class="h4">
-              <input type="radio" id="a1" name="{{q.idq}}" value="{{q.ida1}}" (click)="clickedMe($event)"> {{q.a1}}
-          </label>
-        </div>
-        <div class="radio">
-            <label>
-                <input type="radio" id="a2" name="{{q.idq}}" value="{{q.ida2}}" (click)="clickedMe($event)"> {{q.a2}}
-            </label>
-          </div>
-          <div class="radio">
-              <label>
-                  <input type="radio" id="a3" name="{{q.idq}}" value="{{q.ida3}}" (click)="clickedMe($event)"> {{q.a3}}
-              </label>
-            </div> -->

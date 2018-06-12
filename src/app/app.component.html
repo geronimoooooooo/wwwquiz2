@@ -13,7 +13,7 @@
 <div class="card-deck-wrapper" style="margin-top: 3em;">
   <div class="card-deck">
     <div class="card" *ngFor="let quiz of quizzes">
-      <a [routerLink]="['/quiz', 1]" class="btn btn-fix text-left">
+      <a [routerLink]="['/quiz', quiz.id]" class="btn btn-fix text-left">
         <img class="card-img-bottom" width="422px" height="318px" src="{{ quiz.img_url }}" alt="He-man">
         <div class="card-block ">
           <h4 class="card-title text-dark text-center" style="margin-top: 1em;">{{ quiz.name }}</h4>

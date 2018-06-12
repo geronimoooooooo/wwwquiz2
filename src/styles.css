@@ -1,21 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import "~bootstrap/dist/css/bootstrap.css";
-
-
-#h1_quiz{
+#h1_quiz {
     font-size: 4em;
     font-family: 'Lucida Sans';
 }
+
 .btn-fix {
     padding: 0;
     border: none;
-   
     white-space: normal;
-  }
-  
+}
 
-.abc2{
-   /* font-size: 10px;*/
-   font-size: 2em;
+.abc2 {
+    /* font-size: 10px;*/
+    font-size: 2em;
     /*font: 1em sans-serif;*/
 }
