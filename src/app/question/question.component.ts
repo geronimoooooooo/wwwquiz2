@@ -34,7 +34,7 @@ export class QuestionComponent implements OnInit {
   json: string = `[
   {
     "idq": "idq_5b111cc2-6e25-11e8-adc0-fa7ae01bbebc",
-    "question": "Wie heißt die Kampfkatze von He-Man?",
+    "question": "Wie heißt die Kampfkatze von He-Man???",
     "ida1": "ida1_5b111f6a-6e25-11e8-adc0-fa7ae01bbebc",
     "a1": "Bella",
     "ida2": "ida2_5b1120b4-6e25-11e8-adc0-fa7ae01bbebc",
@@ -83,20 +83,23 @@ export class QuestionComponent implements OnInit {
   }
   //https://api.github.com/users/seeschweiler
   ngOnInit() {
-    let arrU: QuestionSingle[] = [];
-    let u: QuestionSingle = new QuestionSingle();
-    let json1 = JSON.parse(this.json1);
-    Object.assign(u, json1);
-    let json = JSON.parse(this.json);
-    Object.assign(arrU, json);
-    console.log(u.question);
-    console.log(arrU.length);
-    this.qList.push(u);
-    this.qList = arrU;
-    /*
-    this.http.get('http://kohlmeise.cosy.sbg.ac.at/app/quizzes/').subscribe(data => {
+    let url="https://gist.githubusercontent.com/geronimoooooooo/aa0da95fd7c0bf7956d5ad5a9ac9491e/raw/0190293601c53deacefb77998497202d99990e4b/q1.json";
+    this.http.get(url).subscribe(data => {
       console.log(data);
-    });*/
+   
+    let arrU: QuestionSingle[] = [];
+    Object.assign(arrU, data);
+    this.qList = arrU;
+    //let u: QuestionSingle = new QuestionSingle();
+    //let json1 = JSON.parse(this.json1);
+    //Object.assign(u, data);
+    //let json = JSON.parse(json1);
+    
+    //console.log(u.question);
+    //console.log(arrU.length);
+    //this.qList.push(u);
+    
+  });   
   }
   showCorrectAnswers(){
     console.log("following correct answers:");
