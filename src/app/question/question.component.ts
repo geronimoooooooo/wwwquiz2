@@ -14,7 +14,6 @@ export class QuestionComponent implements OnInit {
 
   @ViewChild('f') form: any;
   questions: Question[];
-  result: String;
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
 
@@ -32,7 +31,7 @@ export class QuestionComponent implements OnInit {
     console.log(this.form.value)
 
     this.http.post("http://kohlmeise.cosy.sbg.ac.at/app/evaluate", this.form.value, {responseType: 'text'}).subscribe((data: any) => {
-      this.result = data;
+      this.router.navigate(['/result', {result: data}]);
     });
 
   }

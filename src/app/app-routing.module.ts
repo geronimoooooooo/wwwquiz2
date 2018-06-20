@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { QuestionComponent } from './question/question.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { ResultComponent } from './result/result.component';
 
 
 const routes: Routes = [
   { path: 'home', component: AppComponent },
+  { path: 'result', component: ResultComponent},
   { path: 'quizzes', component: QuizComponent},
   { path: 'quiz/:id', component: QuestionComponent },
   { path: '',   redirectTo: '/quizzes', pathMatch: 'full' },
