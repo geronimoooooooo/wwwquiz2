@@ -14,9 +14,10 @@ export class QuestionComponent implements OnInit {
 
   @ViewChild('f') form: any;
   questions: Question[];
+  question: Question;
+  index: number;
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
-
   }
 
   ngOnInit() {
@@ -24,16 +25,33 @@ export class QuestionComponent implements OnInit {
 
     this.http.get<Question[]>("http://kohlmeise.cosy.sbg.ac.at/app/questions/" + id).subscribe((data: any) => {
       this.questions = data.questions;
+      this.question = this.questions[this.index = 0];
     });
   }
 
   showValues() {
-    console.log(this.form.value)
-
     this.http.post("http://kohlmeise.cosy.sbg.ac.at/app/evaluate", this.form.value, {responseType: 'text'}).subscribe((data: any) => {
       this.router.navigate(['/result', {result: data}]);
     });
+  }
 
+  prevQuestion() {
+    if (this.index > 0) {
+      this.index -= 1;
+      this.question = this.questions[this.index];
+    }
+  }
+
+  setQuestion(event) {
+    this.index = event.target.dataset.index;
+    this.question = this.questions[this.index];
+  }
+
+  nextQuestion() {
+    if (this.index < this.questions.length) {
+      this.index += 1;
+      this.question = this.questions[this.index];
+    }
   }
 
 }

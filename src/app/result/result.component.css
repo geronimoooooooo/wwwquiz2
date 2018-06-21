@@ -1,0 +1,11 @@
+.usr_select {
+    border: 3px solid red !important;
+}
+
+.is_right {
+    border: 3px solid green !important;
+}
+
+.card-body > div {
+    border: 3px solid transparent;
+}
