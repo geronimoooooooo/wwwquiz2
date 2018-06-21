@@ -23,14 +23,14 @@ export class QuestionComponent implements OnInit {
   ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
 
-    this.http.get<Question[]>("http://kohlmeise.cosy.sbg.ac.at/app/questions/" + id).subscribe((data: any) => {
+    this.http.get<Question[]>("https://kohlmeise.cosy.sbg.ac.at/app/questions/" + id).subscribe((data: any) => {
       this.questions = data.questions;
       this.question = this.questions[this.index = 0];
     });
   }
 
   showValues() {
-    this.http.post("http://kohlmeise.cosy.sbg.ac.at/app/evaluate", this.form.value, {responseType: 'text'}).subscribe((data: any) => {
+    this.http.post("https://kohlmeise.cosy.sbg.ac.at/app/evaluate", this.form.value, {responseType: 'text'}).subscribe((data: any) => {
       this.router.navigate(['/result', {result: data}]);
     });
   }

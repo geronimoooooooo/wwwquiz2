@@ -14,7 +14,7 @@ export class QuizComponent implements OnInit {
 
   ngOnInit() {
     this.http
-      .get<Quiz[]>("http://kohlmeise.cosy.sbg.ac.at/app/quizzes/")
+      .get<Quiz[]>("https://kohlmeise.cosy.sbg.ac.at/app/quizzes/")
       .subscribe((data: any) => {
         this.quizzes = data.quizzes;
       });
